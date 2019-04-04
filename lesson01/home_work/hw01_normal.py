@@ -1,5 +1,5 @@
-
-__author__ = 'Ваши Ф.И.О.'
+#-*- coding: utf-8 -*-
+__author__ = 'Kirichenko Maxim Evgen\'evich'
 
 # Задача-1: Дано произвольное целое число, вывести самую большую цифру этого числа.
 # Например, дается x = 58375.
@@ -10,6 +10,18 @@ __author__ = 'Ваши Ф.И.О.'
 # * постарайтесь решить задачу с применением арифметики и цикла while;
 # * при желании и понимании решите задачу с применением цикла for.
 
+def input_number():
+    digit = str(input('Enter your number, please! '))
+    if not digit.isdigit():
+        print('Please, enter number. Only digitals, PLEASE!')
+        input_number()
+    return digit
+highest = 0
+for x in input_number():
+    if int(x)>=highest:
+        highest = int(x)
+print(highest)
+
 
 # Задача-2: Исходные значения двух переменных запросить у пользователя.
 # Поменять значения переменных местами. Вывести новые значения на экран.
@@ -18,6 +30,7 @@ __author__ = 'Ваши Ф.И.О.'
 # * постарайтесь сделать решение через действия над числами;
 # * при желании и понимании воспользуйтесь синтаксисом кортежей Python.
 
+# решил в easy, повторяться нет смысла...
 
 # Задача-3: Напишите программу, вычисляющую корни квадратного уравнения вида
 # ax² + bx + c = 0.
@@ -25,3 +38,31 @@ __author__ = 'Ваши Ф.И.О.'
 # Для вычисления квадратного корня воспользуйтесь функцией sqrt() модуля math:
 # import math
 # math.sqrt(4) - вычисляет корень числа 4
+
+#тогда бы и формулу решения квадратных уравнений привели - не все вчерашние школьники )))
+
+print('Решаем квадратное уравнение вида ax^2 + bx + c = 0\nВведите коэффициенты')
+a = int(input('Введите коэффициент а: '))
+
+b = int(input('Введите коэффициент b: '))
+
+c = int(input('Введите коэффициент c: '))
+
+print(a, b, c)
+
+discr = b**2-4*a*c
+if discr > 0:
+    print('There are 2 squares in your equation')
+    x1 = (-b+discr)/(2*a)
+    x2 = (-b-discr)/(2*a)
+    print('x1 = ', x1, ' ', 'x2 = ', x2)
+
+if discr == 0:
+    print('There is 1 square in your equation')
+    x1 = (-b-discr)/(2*a)
+    print('x1 = ', x1)
+
+if discr < 0:
+    print('There are no real squares in your equation')
+
+
